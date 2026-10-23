@@ -92,8 +92,8 @@ Every feature phase strictly adheres to this 6-step lifecycle:
 | Phase | Feature Focus | Status | Git Milestone |
 | :---: | :--- | :---: | :--- |
 | **Phase 1** | **Foundation & Application Shell** | ✅ **COMPLETED** | `9eed2e1` (`feat(phase-1): migrate to TypeScript, configure routing, and build responsive navigation shell`) |
-| **Phase 2** | **Supabase Client & Environment Validation** | 🟡 **NEXT** | Pending approval |
-| **Phase 3** | **Database Schema, Migrations & RLS Policies** | ⚪ PENDING | - |
+| **Phase 2** | **Supabase Client & Environment Validation** | 🟡 PENDING | Ready for development |
+| **Phase 3** | **Database Schema, Migrations & RLS Policies** | ✅ **AUTHORED** | Migrations generated in `supabase/` |
 | **Phase 4** | **Authentication & Role-Based Profile Lifecycle** | ⚪ PENDING | - |
 | **Phase 5** | **Lead Management — CRUD & Status Transitions** | ⚪ PENDING | - |
 | **Phase 6** | **Lead Search, Multi-Filter & Assignment** | ⚪ PENDING | - |
