@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, UserPlus, CalendarClock, CheckCircle, ArrowRight, TrendingUp, Database, AlertCircle } from 'lucide-react';
 import { StatusBadge } from '../components/common/StatusBadge';
 import { isSupabaseConfigured } from '../lib/supabaseClient';
+import { NewLeadModal } from '../components/leads/NewLeadModal';
 
 export const DashboardPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div>
       <div className="page-header">
@@ -15,10 +17,10 @@ export const DashboardPage: React.FC = () => {
           </p>
         </div>
         <div style={{ display: 'flex', gap: '10px' }}>
-          <Link to="/leads/new" className="btn btn-primary">
+          <button onClick={() => setIsModalOpen(true)} className="btn btn-primary">
             <UserPlus size={16} />
             <span>New Lead</span>
-          </Link>
+          </button>
           <Link to="/followups" className="btn btn-secondary">
             <CalendarClock size={16} />
             <span>Follow-ups</span>
@@ -128,6 +130,11 @@ export const DashboardPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <NewLeadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

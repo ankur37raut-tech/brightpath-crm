@@ -15,7 +15,9 @@ export const AppLayout: React.FC = () => {
       <div className="app-main">
         <Navbar onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)} />
         <main className="content-container">
-          <Outlet />
+          <div className="page-fade-in">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

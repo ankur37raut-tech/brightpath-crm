@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserPlus, Search, Filter, ArrowUpRight } from 'lucide-react';
 import { StatusBadge } from '../components/common/StatusBadge';
+import { NewLeadModal } from '../components/leads/NewLeadModal';
 
 export const LeadsPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // Sample demonstration leads to illustrate layout before Phase 5 real data binding
   const sampleLeads = [
     {
@@ -39,10 +42,10 @@ export const LeadsPage: React.FC = () => {
             Manage incoming inquiries, assign counselors, and track lead qualification.
           </p>
         </div>
-        <Link to="/leads/new" className="btn btn-primary">
+        <button onClick={() => setIsModalOpen(true)} className="btn btn-primary">
           <UserPlus size={16} />
           <span>New Lead</span>
-        </Link>
+        </button>
       </div>
 
       {/* Filter and Search Bar Shell */}
@@ -144,6 +147,11 @@ export const LeadsPage: React.FC = () => {
       <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#64748B', textAlign: 'right' }}>
         * Displaying preview records. Phase 5 will bind live Supabase queries & filters.
       </div>
+
+      <NewLeadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
