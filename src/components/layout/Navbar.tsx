@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, Bell, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SupabaseStatusPill } from '../common/SupabaseStatusPill';
 
 interface NavbarProps {
   onToggleSidebar: () => void;
@@ -28,6 +29,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
       </div>
 
       <div className="navbar-right">
+        {/* Dynamic Database Connection Pill */}
+        <SupabaseStatusPill />
+
         <button
           className="btn btn-secondary"
           style={{ padding: '0.45rem', borderRadius: '50%' }}
